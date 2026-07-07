@@ -1,3 +1,5 @@
 <Solution>
-  <Project Path="Aeroverra.Authentication/Aeroverra.Authentication.csproj" />
+  <Project Path="Aeroverra.Authentication.Kick/Aeroverra.Authentication.Kick.csproj" />
+  <Project Path="Aeroverra.Authentication.AeroVi/Aeroverra.Authentication.AeroVi.csproj" />
+  <Project Path="Aeroverra.Authentication.Tests/Aeroverra.Authentication.Tests.csproj" />
 </Solution>
