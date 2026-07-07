@@ -14,6 +14,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="10.0.0" />
+    <PackageReference Include="OpenIddict.Client.AspNetCore" Version="7.5.0" />
+    <PackageReference Include="OpenIddict.Client.SystemNetHttp" Version="7.5.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
     <PackageReference Include="xunit" Version="2.9.2" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
@@ -23,8 +25,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Aeroverra.Authentication.Kick\Aeroverra.Authentication.Kick.csproj" />
-    <ProjectReference Include="..\Aeroverra.Authentication.Aero\Aeroverra.Authentication.Aero.csproj" />
+    <ProjectReference Include="..\Aeroverra.Authentication.OAuth.Kick\Aeroverra.Authentication.OAuth.Kick.csproj" />
+    <ProjectReference Include="..\Aeroverra.Authentication.OAuth.Aero\Aeroverra.Authentication.OAuth.Aero.csproj" />
+    <ProjectReference Include="..\Aeroverra.Authentication.OpenIddict.Client.Kick\Aeroverra.Authentication.OpenIddict.Client.Kick.csproj" />
+    <ProjectReference Include="..\Aeroverra.Authentication.OpenIddict.Client.Aero\Aeroverra.Authentication.OpenIddict.Client.Aero.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,7 +2,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OAuth;
 
-namespace Aeroverra.Authentication.Aero;
+namespace Aeroverra.Authentication.OAuth.Aero;
 
 /// <summary>
 /// Defines a set of options used by <see cref="AeroAuthenticationHandler"/>.

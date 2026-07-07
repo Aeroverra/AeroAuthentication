@@ -1,9 +1,9 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OAuth;
-using static Aeroverra.Authentication.Kick.KickAuthenticationConstants;
+using static Aeroverra.Authentication.OAuth.Kick.KickAuthenticationConstants;
 
-namespace Aeroverra.Authentication.Kick;
+namespace Aeroverra.Authentication.OAuth.Kick;
 
 /// <summary>
 /// Defines a set of options used by <see cref="KickAuthenticationHandler"/>.

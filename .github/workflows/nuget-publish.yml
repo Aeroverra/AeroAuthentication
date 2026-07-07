@@ -71,18 +71,10 @@ jobs:
           --no-build
           --logger "console;verbosity=normal"
 
-      - name: Pack Aeroverra.Authentication.Kick
+      # Packs every packable project in the solution (the test project is IsPackable=false).
+      - name: Pack
         run: >
-          dotnet pack Aeroverra.Authentication.Kick/Aeroverra.Authentication.Kick.csproj
-          -c Release
-          --no-build
-          -o ./packages
-          -p:Version=${{ steps.ver.outputs.value }}
-          -p:ContinuousIntegrationBuild=true
-
-      - name: Pack Aeroverra.Authentication.Aero
-        run: >
-          dotnet pack Aeroverra.Authentication.Aero/Aeroverra.Authentication.Aero.csproj
+          dotnet pack Aeroverra.Authentication.slnx
           -c Release
           --no-build
           -o ./packages

@@ -1,17 +1,21 @@
 # Aero Authentication
 
-OAuth 2.0 authentication providers for ASP.NET Core, following the conventions of
-[AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers).
-Each provider ships as its own NuGet package.
+Authentication providers for ASP.NET Core, available in two flavors per provider:
 
-## Providers
+- **OAuth handlers** built on `Microsoft.AspNetCore.Authentication.OAuth`, following the conventions of
+  [AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers).
+- **OpenIddict client registrations** for apps using the [OpenIddict](https://github.com/openiddict/openiddict-core) client stack.
 
-| Provider | Package | Documentation |
-| -------- | ------- | ------------- |
-| [Kick](https://kick.com) | [Aeroverra.Authentication.Kick](https://www.nuget.org/packages/Aeroverra.Authentication.Kick) | [docs/kick.md](docs/kick.md) |
-| [Aero.VI](https://aero.vi) | [Aeroverra.Authentication.Aero](https://www.nuget.org/packages/Aeroverra.Authentication.Aero) | [docs/aero.md](docs/aero.md) |
+Each provider and flavor ships as its own NuGet package.
 
-## Getting started
+## Packages
+
+| Provider | ASP.NET Core OAuth | OpenIddict client | Documentation |
+| -------- | ------------------ | ----------------- | ------------- |
+| [Kick](https://kick.com) | [Aeroverra.Authentication.OAuth.Kick](https://www.nuget.org/packages/Aeroverra.Authentication.OAuth.Kick) | [Aeroverra.Authentication.OpenIddict.Client.Kick](https://www.nuget.org/packages/Aeroverra.Authentication.OpenIddict.Client.Kick) | [docs/kick.md](docs/kick.md) |
+| [Aero.VI](https://aero.vi) | [Aeroverra.Authentication.OAuth.Aero](https://www.nuget.org/packages/Aeroverra.Authentication.OAuth.Aero) | [Aeroverra.Authentication.OpenIddict.Client.Aero](https://www.nuget.org/packages/Aeroverra.Authentication.OpenIddict.Client.Aero) | [docs/aero.md](docs/aero.md) |
+
+## Getting started (OAuth handler)
 
 ```csharp
 builder.Services
@@ -24,6 +28,27 @@ builder.Services
     {
         options.ClientId = builder.Configuration["Kick:ClientId"]!;
         options.ClientSecret = builder.Configuration["Kick:ClientSecret"]!;
+    });
+```
+
+## Getting started (OpenIddict client)
+
+```csharp
+builder.Services
+    .AddOpenIddict()
+    .AddClient(options =>
+    {
+        options.AllowAuthorizationCodeFlow();
+        options.AddDevelopmentEncryptionCertificate().AddDevelopmentSigningCertificate();
+        options.UseAspNetCore().EnableRedirectionEndpointPassthrough();
+        options.UseSystemNetHttp();
+
+        options.AddKick(settings =>
+        {
+            settings.ClientId = builder.Configuration["Kick:ClientId"]!;
+            settings.ClientSecret = builder.Configuration["Kick:ClientSecret"]!;
+            settings.RedirectUri = new Uri("https://your-site/callback/login/kick");
+        });
     });
 ```
 

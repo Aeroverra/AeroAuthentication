@@ -1,4 +1,4 @@
-using Aeroverra.Authentication.Kick;
+using Aeroverra.Authentication.OAuth.Kick;
 using Microsoft.AspNetCore.Authentication;
 
 namespace Microsoft.Extensions.DependencyInjection;

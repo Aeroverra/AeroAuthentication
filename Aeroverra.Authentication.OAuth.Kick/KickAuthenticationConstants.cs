@@ -1,4 +1,4 @@
-namespace Aeroverra.Authentication.Kick;
+namespace Aeroverra.Authentication.OAuth.Kick;
 
 /// <summary>
 /// Contains constants specific to the <see cref="KickAuthenticationHandler"/>.

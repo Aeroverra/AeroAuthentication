@@ -1,6 +1,6 @@
 using System.Net;
 using System.Security.Claims;
-using Aeroverra.Authentication.Kick;
+using Aeroverra.Authentication.OAuth.Kick;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.AspNetCore.WebUtilities;

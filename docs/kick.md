@@ -3,10 +3,10 @@
 ## Setup
 
 Create an application in the [Kick developer settings](https://kick.com/settings/developer) and add
-`https://your-site/signin-kick` as an allowed redirect URI. See the
-[Kick developer documentation](https://docs.kick.com/) for details.
+your redirect URI (`https://your-site/signin-kick` for the OAuth handler) as an allowed redirect URI.
+See the [Kick developer documentation](https://docs.kick.com/) for details.
 
-## Example
+## Example (OAuth handler, package `Aeroverra.Authentication.OAuth.Kick`)
 
 ```csharp
 services.AddAuthentication()
@@ -17,7 +17,31 @@ services.AddAuthentication()
         });
 ```
 
-## Defaults
+## Example (OpenIddict client, package `Aeroverra.Authentication.OpenIddict.Client.Kick`)
+
+Kick doesn't expose an OpenID Connect discovery document, so the registration attaches a static
+configuration. A custom event handler unwraps Kick's `data` envelope and maps `user_id` and
+`profile_picture` to the standard `sub` and `picture` claims.
+
+```csharp
+services.AddOpenIddict()
+        .AddClient(options =>
+        {
+            options.AllowAuthorizationCodeFlow();
+            options.AddDevelopmentEncryptionCertificate().AddDevelopmentSigningCertificate();
+            options.UseAspNetCore().EnableRedirectionEndpointPassthrough();
+            options.UseSystemNetHttp();
+
+            options.AddKick(settings =>
+            {
+                settings.ClientId = "your-client-id";
+                settings.ClientSecret = "your-client-secret";
+                settings.RedirectUri = new Uri("https://your-site/callback/login/kick");
+            });
+        });
+```
+
+## OAuth handler defaults
 
 | Setting | Value |
 | ------- | ----- |

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace Aeroverra.Authentication.Kick;
+namespace Aeroverra.Authentication.OAuth.Kick;
 
 /// <summary>
 /// Provides the OAuth 2.0 authentication logic for Kick.
