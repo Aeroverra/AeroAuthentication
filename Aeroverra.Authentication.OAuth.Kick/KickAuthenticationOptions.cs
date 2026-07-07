@@ -23,7 +23,7 @@ public class KickAuthenticationOptions : OAuthOptions
         UserInformationEndpoint = KickAuthenticationDefaults.UserInformationEndpoint;
 
         // View user information in Kick including username, streamer ID, etc.
-        Scope.Add("user:read");
+        Scope.Add(Scopes.UserRead);
 
         // Kick requires PKCE.
         UsePkce = true;

@@ -23,12 +23,13 @@ public sealed class AeroOpenIddictClientSettings
     public Uri? RedirectUri { get; set; }
 
     /// <summary>
-    /// Gets the scopes requested from Aero.VI. Defaults to <c>openid</c>, <c>profile</c> and <c>email</c>.
+    /// Gets the scopes requested from Aero.VI. Defaults to <c>openid</c> (required for
+    /// Aero.VI to issue an identity token), <c>offline_access</c> and <c>user.profile.read</c>.
     /// </summary>
     public IList<string> Scopes { get; } =
     [
         OpenIddictConstants.Scopes.OpenId,
-        OpenIddictConstants.Scopes.Profile,
-        OpenIddictConstants.Scopes.Email
+        AeroOpenIddictClientConstants.Scopes.OfflineAccess,
+        AeroOpenIddictClientConstants.Scopes.UserProfileRead
     ];
 }

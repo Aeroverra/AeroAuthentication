@@ -20,7 +20,8 @@ services.AddAuthentication()
 
 Aero.VI exposes an OpenID Connect discovery document at
 `https://api.aero.vi/.well-known/openid-configuration`, so the endpoints are resolved
-automatically from the issuer. The default scopes are `openid`, `profile` and `email`.
+automatically from the issuer. The default scopes are `openid`, `offline_access` and
+`user.profile.read`.
 
 ```csharp
 services.AddOpenIddict()
@@ -59,3 +60,18 @@ services.AddOpenIddict()
 | `ClaimTypes.NameIdentifier` | `id` |
 | `ClaimTypes.Name` | `userName` |
 | `ClaimTypes.Email` | `email` |
+
+## Scopes
+
+The scopes used by the Aero.VI provider are exposed as constants on
+`AeroAuthenticationConstants.Scopes` (OAuth handler) and
+`AeroOpenIddictClientConstants.Scopes` (OpenIddict client):
+
+| Scope | Constant | Grants |
+| ----- | -------- | ------ |
+| `offline_access` | `Scopes.OfflineAccess` | Allows Aero.VI to issue refresh tokens |
+| `user.profile.read` | `Scopes.UserProfileRead` | Basic profile information (name, username, etc.) |
+
+The OAuth handler requests both by default. The OpenIddict client additionally requests the
+standard `openid` scope, which Aero.VI needs to issue the identity token that carries the
+user's identity.

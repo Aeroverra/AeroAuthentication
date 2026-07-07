@@ -38,7 +38,7 @@ public class AeroOpenIddictTests
         Assert.Null(registration.Configuration);
 
         Assert.Contains("openid", registration.Scopes);
-        Assert.Contains("profile", registration.Scopes);
-        Assert.Contains("email", registration.Scopes);
+        Assert.Contains("offline_access", registration.Scopes);
+        Assert.Contains("user.profile.read", registration.Scopes);
     }
 }

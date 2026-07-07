@@ -1,24 +1,13 @@
-namespace Aeroverra.Authentication.OAuth.Kick;
+namespace Aeroverra.Authentication.OpenIddict.Client.Kick;
 
 /// <summary>
-/// Contains constants specific to the <see cref="KickAuthenticationHandler"/>.
+/// Contains constants specific to the Kick OpenIddict client integration.
 /// </summary>
-public static class KickAuthenticationConstants
+public static class KickOpenIddictClientConstants
 {
     /// <summary>
-    /// Custom claim types issued by the Kick provider.
-    /// </summary>
-    public static class Claims
-    {
-        /// <summary>
-        /// The claim holding the URL of the user's Kick profile picture.
-        /// </summary>
-        public const string ProfileImageUrl = "urn:kick:profilepicture";
-    }
-
-    /// <summary>
     /// The OAuth 2.0 scopes supported by Kick. Only <see cref="UserRead"/> is
-    /// requested by default; add others through <c>options.Scope</c>.
+    /// requested by default; add others through <see cref="KickOpenIddictClientSettings.Scopes"/>.
     /// </summary>
     public static class Scopes
     {

@@ -23,5 +23,5 @@ public sealed class KickOpenIddictClientSettings
     /// <summary>
     /// Gets the scopes requested from Kick. Defaults to <c>user:read</c>.
     /// </summary>
-    public IList<string> Scopes { get; } = ["user:read"];
+    public IList<string> Scopes { get; } = [KickOpenIddictClientConstants.Scopes.UserRead];
 }

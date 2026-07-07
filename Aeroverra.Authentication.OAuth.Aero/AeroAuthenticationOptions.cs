@@ -1,6 +1,7 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OAuth;
+using static Aeroverra.Authentication.OAuth.Aero.AeroAuthenticationConstants;
 
 namespace Aeroverra.Authentication.OAuth.Aero;
 
@@ -22,10 +23,10 @@ public class AeroAuthenticationOptions : OAuthOptions
         UserInformationEndpoint = AeroAuthenticationDefaults.UserInformationEndpoint;
 
         // Allow Aero.VI to issue refresh tokens.
-        Scope.Add("offline_access");
+        Scope.Add(Scopes.OfflineAccess);
 
         // View user information in Aero.VI including username, email, etc.
-        Scope.Add("user.profile.read");
+        Scope.Add(Scopes.UserProfileRead);
 
         // Aero.VI requires PKCE.
         UsePkce = true;

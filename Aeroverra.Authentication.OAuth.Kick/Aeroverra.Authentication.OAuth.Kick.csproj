@@ -10,9 +10,9 @@
     <Authors>Aeroverra Nicholas Halka</Authors>
     <Description>ASP.NET Core security middleware enabling Kick OAuth 2.0 authentication.</Description>
     <Copyright>Copyright (c) 2026 Aeroverra</Copyright>
-    <PackageProjectUrl>https://github.com/Aeroverra/Aero-Authentication</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/Aeroverra/AeroAuthentication</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/Aeroverra/Aero-Authentication</RepositoryUrl>
+    <RepositoryUrl>https://github.com/Aeroverra/AeroAuthentication</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>aspnetcore;authentication;kick;oauth;oauth2;security</PackageTags>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <None Include="..\LICENSE.md" Pack="True" PackagePath="\" />
-    <None Include="..\README.md" Pack="True" PackagePath="\" />
+    <None Include="README.md" Pack="True" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>

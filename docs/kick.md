@@ -63,4 +63,36 @@ services.AddOpenIddict()
 | `urn:kick:profilepicture` | `profile_picture` |
 
 The profile picture claim type is available as
-`KickAuthenticationConstants.Claims.ProfileImageUrl`.
+`KickAuthenticationConstants.Claims.ProfileImageUrl`. Note that this is a claim type
+(the key the value is stored under on the signed-in `ClaimsPrincipal`), not a scope;
+it is never sent to Kick.
+
+## Scopes
+
+Only `user:read` is requested by default. All scopes supported by Kick are available as
+constants on `KickAuthenticationConstants.Scopes` (OAuth handler) and
+`KickOpenIddictClientConstants.Scopes` (OpenIddict client):
+
+| Scope | Constant | Grants |
+| ----- | -------- | ------ |
+| `user:read` | `Scopes.UserRead` | View user information including username, streamer ID, etc. |
+| `channel:read` | `Scopes.ChannelRead` | View channel information including description, category, etc. |
+| `channel:write` | `Scopes.ChannelWrite` | Update livestream metadata for a channel |
+| `channel:rewards:read` | `Scopes.ChannelRewardsRead` | Read channel points rewards on a channel |
+| `channel:rewards:write` | `Scopes.ChannelRewardsWrite` | Read, add, edit and delete channel points rewards |
+| `chat:write` | `Scopes.ChatWrite` | Send chat messages and allow chat bots to post |
+| `streamkey:read` | `Scopes.StreamKeyRead` | Read a user's stream URL and stream key |
+| `events:subscribe` | `Scopes.EventsSubscribe` | Subscribe to channel events (chat messages, follows, subscriptions, ...) |
+| `moderation:ban` | `Scopes.ModerationBan` | Execute moderation actions for moderators |
+| `moderation:chat_message:manage` | `Scopes.ModerationChatMessageManage` | Execute moderation actions on chat messages |
+| `kicks:read` | `Scopes.KicksRead` | View KICKs related information, e.g. leaderboards |
+
+```csharp
+.AddKick(options =>
+{
+    options.ClientId = "your-client-id";
+    options.ClientSecret = "your-client-secret";
+    options.Scope.Add(KickAuthenticationConstants.Scopes.ChannelRead);
+    options.Scope.Add(KickAuthenticationConstants.Scopes.ChatWrite);
+});
+```
