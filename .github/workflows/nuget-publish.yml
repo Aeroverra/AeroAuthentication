@@ -80,9 +80,9 @@ jobs:
           -p:Version=${{ steps.ver.outputs.value }}
           -p:ContinuousIntegrationBuild=true
 
-      - name: Pack Aeroverra.Authentication.AeroVi
+      - name: Pack Aeroverra.Authentication.Aero
         run: >
-          dotnet pack Aeroverra.Authentication.AeroVi/Aeroverra.Authentication.AeroVi.csproj
+          dotnet pack Aeroverra.Authentication.Aero/Aeroverra.Authentication.Aero.csproj
           -c Release
           --no-build
           -o ./packages

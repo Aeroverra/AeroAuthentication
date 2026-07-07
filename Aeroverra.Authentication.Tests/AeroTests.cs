@@ -1,6 +1,6 @@
 using System.Net;
 using System.Security.Claims;
-using Aeroverra.Authentication.AeroVi;
+using Aeroverra.Authentication.Aero;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.AspNetCore.WebUtilities;
@@ -8,12 +8,12 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Aeroverra.Authentication.Tests;
 
-public class AeroViTests
+public class AeroTests
 {
     [Fact]
-    public void Defaults_Use_The_AeroVi_Endpoints()
+    public void Defaults_Use_The_Aero_Endpoints()
     {
-        var options = new AeroViAuthenticationOptions();
+        var options = new AeroAuthenticationOptions();
 
         Assert.Equal("https://api.aero.vi/oauth/authorize", options.AuthorizationEndpoint);
         Assert.Equal("https://api.aero.vi/oauth/token", options.TokenEndpoint);
@@ -26,9 +26,9 @@ public class AeroViTests
     }
 
     [Fact]
-    public async Task Challenge_Redirects_To_AeroVi_With_Pkce()
+    public async Task Challenge_Redirects_To_Aero_With_Pkce()
     {
-        using var host = await OAuthFlow.CreateHostAsync(RegisterAeroVi, AeroViAuthenticationDefaults.AuthenticationScheme);
+        using var host = await OAuthFlow.CreateHostAsync(RegisterAero, AeroAuthenticationDefaults.AuthenticationScheme);
         using var client = host.GetTestServer().CreateClient();
 
         using var response = await client.GetAsync("/challenge");
@@ -54,22 +54,22 @@ public class AeroViTests
     [InlineData(ClaimTypes.NameIdentifier, "aero-user-id")]
     [InlineData(ClaimTypes.Name, "Space Ranger")]
     [InlineData(ClaimTypes.Email, "spaceranger@example.com")]
-    public async Task Can_Sign_In_Using_AeroVi(string claimType, string claimValue)
+    public async Task Can_Sign_In_Using_Aero(string claimType, string claimValue)
     {
-        var claims = await OAuthFlow.AuthenticateAsync(RegisterAeroVi, AeroViAuthenticationDefaults.AuthenticationScheme);
+        var claims = await OAuthFlow.AuthenticateAsync(RegisterAero, AeroAuthenticationDefaults.AuthenticationScheme);
 
         var claim = Assert.Single(claims, claim => claim.Type == claimType);
         Assert.Equal(claimValue, claim.Value);
     }
 
-    private static void RegisterAeroVi(AuthenticationBuilder builder) => builder.AddAeroVi(options =>
+    private static void RegisterAero(AuthenticationBuilder builder) => builder.AddAero(options =>
     {
         options.ClientId = "test-client-id";
         options.ClientSecret = "test-client-secret";
-        options.BackchannelHttpHandler = new StubBackchannel(AeroViEndpoints);
+        options.BackchannelHttpHandler = new StubBackchannel(AeroEndpoints);
     });
 
-    private static HttpResponseMessage? AeroViEndpoints(HttpRequestMessage request)
+    private static HttpResponseMessage? AeroEndpoints(HttpRequestMessage request)
     {
         return request.RequestUri!.GetLeftPart(UriPartial.Path) switch
         {

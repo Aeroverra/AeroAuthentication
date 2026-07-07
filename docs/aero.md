@@ -9,7 +9,7 @@ Register an OAuth application with [Aero.VI](https://aero.vi) and add
 
 ```csharp
 services.AddAuthentication()
-        .AddAeroVi(options =>
+        .AddAero(options =>
         {
             options.ClientId = "your-client-id";
             options.ClientSecret = "your-client-secret";

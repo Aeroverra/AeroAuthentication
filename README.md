@@ -9,7 +9,7 @@ Each provider ships as its own NuGet package.
 | Provider | Package | Documentation |
 | -------- | ------- | ------------- |
 | [Kick](https://kick.com) | [Aeroverra.Authentication.Kick](https://www.nuget.org/packages/Aeroverra.Authentication.Kick) | [docs/kick.md](docs/kick.md) |
-| [Aero.VI](https://aero.vi) | [Aeroverra.Authentication.AeroVi](https://www.nuget.org/packages/Aeroverra.Authentication.AeroVi) | [docs/aerovi.md](docs/aerovi.md) |
+| [Aero.VI](https://aero.vi) | [Aeroverra.Authentication.Aero](https://www.nuget.org/packages/Aeroverra.Authentication.Aero) | [docs/aero.md](docs/aero.md) |
 
 ## Getting started
 

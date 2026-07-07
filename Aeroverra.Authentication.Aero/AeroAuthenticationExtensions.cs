@@ -1,4 +1,4 @@
-using Aeroverra.Authentication.AeroVi;
+using Aeroverra.Authentication.Aero;
 using Microsoft.AspNetCore.Authentication;
 
 namespace Microsoft.Extensions.DependencyInjection;
@@ -6,51 +6,51 @@ namespace Microsoft.Extensions.DependencyInjection;
 /// <summary>
 /// Extension methods to add Aero.VI authentication capabilities to an HTTP application pipeline.
 /// </summary>
-public static class AeroViAuthenticationExtensions
+public static class AeroAuthenticationExtensions
 {
     /// <summary>
-    /// Adds <see cref="AeroViAuthenticationHandler"/> to the specified
+    /// Adds <see cref="AeroAuthenticationHandler"/> to the specified
     /// <see cref="AuthenticationBuilder"/>, which enables Aero.VI authentication capabilities.
     /// </summary>
     /// <param name="builder">The authentication builder.</param>
     /// <returns>A reference to this instance after the operation has completed.</returns>
-    public static AuthenticationBuilder AddAeroVi(this AuthenticationBuilder builder)
+    public static AuthenticationBuilder AddAero(this AuthenticationBuilder builder)
     {
-        return builder.AddAeroVi(AeroViAuthenticationDefaults.AuthenticationScheme, static options => { });
+        return builder.AddAero(AeroAuthenticationDefaults.AuthenticationScheme, static options => { });
     }
 
     /// <summary>
-    /// Adds <see cref="AeroViAuthenticationHandler"/> to the specified
+    /// Adds <see cref="AeroAuthenticationHandler"/> to the specified
     /// <see cref="AuthenticationBuilder"/>, which enables Aero.VI authentication capabilities.
     /// </summary>
     /// <param name="builder">The authentication builder.</param>
     /// <param name="configuration">The delegate used to configure the Aero.VI options.</param>
     /// <returns>A reference to this instance after the operation has completed.</returns>
-    public static AuthenticationBuilder AddAeroVi(
+    public static AuthenticationBuilder AddAero(
         this AuthenticationBuilder builder,
-        Action<AeroViAuthenticationOptions> configuration)
+        Action<AeroAuthenticationOptions> configuration)
     {
-        return builder.AddAeroVi(AeroViAuthenticationDefaults.AuthenticationScheme, configuration);
+        return builder.AddAero(AeroAuthenticationDefaults.AuthenticationScheme, configuration);
     }
 
     /// <summary>
-    /// Adds <see cref="AeroViAuthenticationHandler"/> to the specified
+    /// Adds <see cref="AeroAuthenticationHandler"/> to the specified
     /// <see cref="AuthenticationBuilder"/>, which enables Aero.VI authentication capabilities.
     /// </summary>
     /// <param name="builder">The authentication builder.</param>
     /// <param name="scheme">The authentication scheme associated with this instance.</param>
     /// <param name="configuration">The delegate used to configure the Aero.VI options.</param>
     /// <returns>A reference to this instance after the operation has completed.</returns>
-    public static AuthenticationBuilder AddAeroVi(
+    public static AuthenticationBuilder AddAero(
         this AuthenticationBuilder builder,
         string scheme,
-        Action<AeroViAuthenticationOptions> configuration)
+        Action<AeroAuthenticationOptions> configuration)
     {
-        return builder.AddAeroVi(scheme, AeroViAuthenticationDefaults.DisplayName, configuration);
+        return builder.AddAero(scheme, AeroAuthenticationDefaults.DisplayName, configuration);
     }
 
     /// <summary>
-    /// Adds <see cref="AeroViAuthenticationHandler"/> to the specified
+    /// Adds <see cref="AeroAuthenticationHandler"/> to the specified
     /// <see cref="AuthenticationBuilder"/>, which enables Aero.VI authentication capabilities.
     /// </summary>
     /// <param name="builder">The authentication builder.</param>
@@ -58,12 +58,12 @@ public static class AeroViAuthenticationExtensions
     /// <param name="caption">The display name associated with this instance.</param>
     /// <param name="configuration">The delegate used to configure the Aero.VI options.</param>
     /// <returns>A reference to this instance after the operation has completed.</returns>
-    public static AuthenticationBuilder AddAeroVi(
+    public static AuthenticationBuilder AddAero(
         this AuthenticationBuilder builder,
         string scheme,
         string caption,
-        Action<AeroViAuthenticationOptions> configuration)
+        Action<AeroAuthenticationOptions> configuration)
     {
-        return builder.AddOAuth<AeroViAuthenticationOptions, AeroViAuthenticationHandler>(scheme, caption, configuration);
+        return builder.AddOAuth<AeroAuthenticationOptions, AeroAuthenticationHandler>(scheme, caption, configuration);
     }
 }

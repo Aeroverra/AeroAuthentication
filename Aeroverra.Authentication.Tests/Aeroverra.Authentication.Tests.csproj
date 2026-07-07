@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Aeroverra.Authentication.Kick\Aeroverra.Authentication.Kick.csproj" />
-    <ProjectReference Include="..\Aeroverra.Authentication.AeroVi\Aeroverra.Authentication.AeroVi.csproj" />
+    <ProjectReference Include="..\Aeroverra.Authentication.Aero\Aeroverra.Authentication.Aero.csproj" />
   </ItemGroup>
 
   <ItemGroup>

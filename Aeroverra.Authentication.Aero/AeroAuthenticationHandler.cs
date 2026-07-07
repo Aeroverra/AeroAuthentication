@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace Aeroverra.Authentication.AeroVi;
+namespace Aeroverra.Authentication.Aero;
 
 /// <summary>
 /// Provides the OAuth 2.0 authentication logic for Aero.VI.
@@ -15,10 +15,10 @@ namespace Aeroverra.Authentication.AeroVi;
 /// <param name="options">The monitor for the options instance.</param>
 /// <param name="logger">The logger factory to use.</param>
 /// <param name="encoder">The URL encoder to use.</param>
-public partial class AeroViAuthenticationHandler(
-    IOptionsMonitor<AeroViAuthenticationOptions> options,
+public partial class AeroAuthenticationHandler(
+    IOptionsMonitor<AeroAuthenticationOptions> options,
     ILoggerFactory logger,
-    UrlEncoder encoder) : OAuthHandler<AeroViAuthenticationOptions>(options, logger, encoder)
+    UrlEncoder encoder) : OAuthHandler<AeroAuthenticationOptions>(options, logger, encoder)
 {
     /// <inheritdoc />
     protected override async Task<AuthenticationTicket> CreateTicketAsync(

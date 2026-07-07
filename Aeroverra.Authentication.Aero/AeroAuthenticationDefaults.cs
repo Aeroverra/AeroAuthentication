@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OAuth;
 
-namespace Aeroverra.Authentication.AeroVi;
+namespace Aeroverra.Authentication.Aero;
 
 /// <summary>
 /// Default values used by the Aero.VI authentication middleware.
 /// </summary>
-public static class AeroViAuthenticationDefaults
+public static class AeroAuthenticationDefaults
 {
     /// <summary>
     /// Default value for <see cref="AuthenticationScheme.Name"/>.
