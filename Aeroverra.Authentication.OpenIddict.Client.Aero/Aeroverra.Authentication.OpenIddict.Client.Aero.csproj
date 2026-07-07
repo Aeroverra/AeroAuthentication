@@ -6,7 +6,9 @@
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <!-- Not published to NuGet yet: flip to true (or delete this property) once the
+         trusted publishing policy for this package ID exists on nuget.org. -->
+    <IsPackable>false</IsPackable>
     <Authors>Aeroverra Nicholas Halka</Authors>
     <Description>OpenIddict client integration enabling Aero.VI OpenID Connect authentication.</Description>
     <Copyright>Copyright (c) 2026 Aeroverra</Copyright>
