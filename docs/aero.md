@@ -19,7 +19,7 @@ services.AddAuthentication()
 ## Example (OpenIddict client, package `Aeroverra.Authentication.OpenIddict.Client.Aero`)
 
 Aero.VI exposes an OpenID Connect discovery document at
-`https://api.aero.vi/.well-known/openid-configuration`, so the endpoints are resolved
+`https://accounts.aero.vi/.well-known/openid-configuration`, so the endpoints are resolved
 automatically from the issuer. The default scopes are `openid`, `offline_access` and
 `user.profile.read`.
 
@@ -47,9 +47,9 @@ services.AddOpenIddict()
 | ------- | ----- |
 | Authentication scheme | `Aero` |
 | Callback path | `/signin-aero` |
-| Authorization endpoint | `https://api.aero.vi/oauth/authorize` |
-| Token endpoint | `https://api.aero.vi/oauth/token` |
-| User information endpoint | `https://api.aero.vi/user/userinfo` |
+| Authorization endpoint | `https://accounts.aero.vi/oauth/authorize` |
+| Token endpoint | `https://accounts.aero.vi/oauth/token` |
+| User information endpoint | `https://accounts.aero.vi/user/userinfo` |
 | Scopes | `offline_access`, `user.profile.read` |
 | PKCE | Required by Aero.VI, enabled by default |
 

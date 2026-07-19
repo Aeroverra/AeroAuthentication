@@ -35,9 +35,9 @@ builder.Services
 | ------- | ----- |
 | Authentication scheme | `Aero` |
 | Callback path | `/signin-aero` |
-| Authorization endpoint | `https://api.aero.vi/oauth/authorize` |
-| Token endpoint | `https://api.aero.vi/oauth/token` |
-| User information endpoint | `https://api.aero.vi/user/userinfo` |
+| Authorization endpoint | `https://accounts.aero.vi/oauth/authorize` |
+| Token endpoint | `https://accounts.aero.vi/oauth/token` |
+| User information endpoint | `https://accounts.aero.vi/user/userinfo` |
 | Scopes | `offline_access`, `user.profile.read` |
 | PKCE | Required by Aero.VI, enabled by default |
 

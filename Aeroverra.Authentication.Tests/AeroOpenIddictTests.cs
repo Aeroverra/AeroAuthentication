@@ -32,7 +32,7 @@ public class AeroOpenIddictTests
         var registration = Assert.Single(options.Registrations);
         Assert.Equal("Aero", registration.ProviderName);
         Assert.Equal("test-client-id", registration.ClientId);
-        Assert.Equal(new Uri("https://api.aero.vi/"), registration.Issuer);
+        Assert.Equal(new Uri("https://accounts.aero.vi/"), registration.Issuer);
 
         // No static configuration: the endpoints are resolved from the discovery document.
         Assert.Null(registration.Configuration);
