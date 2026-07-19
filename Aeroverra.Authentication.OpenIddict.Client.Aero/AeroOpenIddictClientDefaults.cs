@@ -20,5 +20,5 @@ public static class AeroOpenIddictClientDefaults
     /// Aero.VI exposes an OpenID Connect discovery document, so the endpoints
     /// are resolved automatically from the issuer.
     /// </summary>
-    public const string Issuer = "https://api.aero.vi/";
+    public const string Issuer = "https://accounts.aero.vi/";
 }

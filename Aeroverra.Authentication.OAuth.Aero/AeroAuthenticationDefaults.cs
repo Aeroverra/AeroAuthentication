@@ -31,15 +31,15 @@ public static class AeroAuthenticationDefaults
     /// <summary>
     /// Default value for <see cref="OAuthOptions.AuthorizationEndpoint"/>.
     /// </summary>
-    public const string AuthorizationEndpoint = "https://api.aero.vi/oauth/authorize";
+    public const string AuthorizationEndpoint = "https://accounts.aero.vi/oauth/authorize";
 
     /// <summary>
     /// Default value for <see cref="OAuthOptions.TokenEndpoint"/>.
     /// </summary>
-    public const string TokenEndpoint = "https://api.aero.vi/oauth/token";
+    public const string TokenEndpoint = "https://accounts.aero.vi/oauth/token";
 
     /// <summary>
     /// Default value for <see cref="OAuthOptions.UserInformationEndpoint"/>.
     /// </summary>
-    public const string UserInformationEndpoint = "https://api.aero.vi/user/userinfo";
+    public const string UserInformationEndpoint = "https://accounts.aero.vi/user/userinfo";
 }

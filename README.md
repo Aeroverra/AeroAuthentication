@@ -99,7 +99,7 @@ Provider-specific behavior:
   configuration (authorization code + refresh token grants, S256 PKCE, `client_secret_post`).
   A custom event handler unwraps Kick's `{"data":[...]}` userinfo envelope and maps `user_id`
   and `profile_picture` to the standard `sub` and `picture` claims.
-- **Aero.VI** exposes a discovery document at `https://api.aero.vi/.well-known/openid-configuration`,
+- **Aero.VI** exposes a discovery document at `https://accounts.aero.vi/.well-known/openid-configuration`,
   so the registration only needs the issuer, credentials, and scopes; everything else is resolved
   automatically.
 

@@ -15,9 +15,9 @@ public class AeroTests
     {
         var options = new AeroAuthenticationOptions();
 
-        Assert.Equal("https://api.aero.vi/oauth/authorize", options.AuthorizationEndpoint);
-        Assert.Equal("https://api.aero.vi/oauth/token", options.TokenEndpoint);
-        Assert.Equal("https://api.aero.vi/user/userinfo", options.UserInformationEndpoint);
+        Assert.Equal("https://accounts.aero.vi/oauth/authorize", options.AuthorizationEndpoint);
+        Assert.Equal("https://accounts.aero.vi/oauth/token", options.TokenEndpoint);
+        Assert.Equal("https://accounts.aero.vi/user/userinfo", options.UserInformationEndpoint);
         Assert.Equal("/signin-aero", options.CallbackPath.Value);
         Assert.Equal("Aero", options.ClaimsIssuer);
         Assert.True(options.UsePkce);
@@ -36,7 +36,7 @@ public class AeroTests
         Assert.Equal(HttpStatusCode.Redirect, response.StatusCode);
 
         var location = response.Headers.Location!;
-        Assert.Equal("api.aero.vi", location.Host);
+        Assert.Equal("accounts.aero.vi", location.Host);
         Assert.Equal("/oauth/authorize", location.AbsolutePath);
 
         var query = QueryHelpers.ParseQuery(location.Query);
@@ -73,7 +73,7 @@ public class AeroTests
     {
         return request.RequestUri!.GetLeftPart(UriPartial.Path) switch
         {
-            "https://api.aero.vi/oauth/token" when request.Method == HttpMethod.Post => StubBackchannel.Json(
+            "https://accounts.aero.vi/oauth/token" when request.Method == HttpMethod.Post => StubBackchannel.Json(
                 """
                 {
                   "access_token": "aero-access-token",
@@ -83,7 +83,7 @@ public class AeroTests
                   "scope": "offline_access user.profile.read"
                 }
                 """),
-            "https://api.aero.vi/user/userinfo" when request.Method == HttpMethod.Get => StubBackchannel.Json(
+            "https://accounts.aero.vi/user/userinfo" when request.Method == HttpMethod.Get => StubBackchannel.Json(
                 """
                 {
                   "id": "aero-user-id",

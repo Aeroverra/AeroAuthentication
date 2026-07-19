@@ -4,7 +4,7 @@
 [Aero.VI](https://aero.vi) OpenID Connect authentication.
 
 Aero.VI exposes an OpenID Connect discovery document at
-`https://api.aero.vi/.well-known/openid-configuration`, so the registration only needs the issuer,
+`https://accounts.aero.vi/.well-known/openid-configuration`, so the registration only needs the issuer,
 credentials, and scopes; endpoints and signing keys are resolved automatically.
 
 ## Install
